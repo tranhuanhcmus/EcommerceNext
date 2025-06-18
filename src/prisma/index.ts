@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 
-// Add TypeScript types for the Prisma Client
 declare global {
   var prisma: PrismaClient | undefined;
 }

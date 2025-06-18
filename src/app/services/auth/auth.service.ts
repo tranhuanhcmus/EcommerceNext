@@ -84,14 +84,12 @@ class AuthService implements IAuthService {
     try {
       const { email, password } = input;
 
-      // Find user by email
       const user = await this.userRepository.getByEmail(email);
 
       if (!user) {
         throw new Error('Invalid email or password');
       }
 
-      // Verify password
       const isPasswordValid = await this.verifyPassword(
         password,
         user.password
@@ -101,10 +99,8 @@ class AuthService implements IAuthService {
         throw new Error('Invalid email or password');
       }
 
-      // Generate JWT token
       const token = await this.generateToken(user);
 
-      // Return user data and token
       return {
         user: user,
         token,
@@ -118,27 +114,22 @@ class AuthService implements IAuthService {
     try {
       const { email, password, name } = input;
 
-      // Check if user already exists
       const existUser = await this.userRepository.getByEmail(email);
 
       if (existUser) {
         throw new Error('User already exists');
       }
 
-      // Hash the password before creating the user
       const hashedPassword = await this.hashPassword(password);
 
-      // Create the user with the hashed password
       const newUser = await this.userRepository.create({
         email,
         password: hashedPassword,
-        name: name || null, // Ensure name is either string or null, not undefined
+        name: name || null,
       });
 
-      // Generate token for the new user
       const token = await this.generateToken(newUser);
 
-      // Return the user data and token
       return {
         user: newUser,
         token,

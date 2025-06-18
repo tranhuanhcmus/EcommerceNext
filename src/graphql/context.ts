@@ -10,7 +10,6 @@ export interface GraphQLContext {
 }
 
 export function createContext() {
-  // Initialize services
   const userRepository = new UserRepository();
   const userService = new UserService(userRepository);
   const authService = new AuthService(userRepository);

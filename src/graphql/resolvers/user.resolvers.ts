@@ -6,7 +6,6 @@ interface Context {
 
 export const userResolvers = {
   Query: {
-    // Get a single user by ID
     getUser: async (_: any, { userId }: { userId: string }, context: Context) => {
       try {
         return await context.userService.getById(userId);
@@ -16,7 +15,6 @@ export const userResolvers = {
       }
     },
 
-    // Get all users with pagination
     getUsers: async (
       _: any,
       { skip, take, filter, sort }: { skip?: number; take?: number; filter?: any; sort?: any },
@@ -37,7 +35,6 @@ export const userResolvers = {
   },
 
   Mutation: {
-    // Create a new user
     createUser: async (
       _: any,
       { input }: { input: any },
@@ -51,7 +48,6 @@ export const userResolvers = {
       }
     },
 
-    // Update an existing user
     updateUser: async (
       _: any,
       { userId, input }: { userId: string; input: any },
@@ -65,7 +61,6 @@ export const userResolvers = {
       }
     },
 
-    // Delete a user
     deleteUser: async (
       _: any,
       { userId }: { userId: string },
