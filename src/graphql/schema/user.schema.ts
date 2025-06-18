@@ -2,7 +2,7 @@ import { gql } from 'graphql-tag';
 
 export const userTypeDefs = gql`
   type User {
-    userId: ID!
+    userId: String!
     name: String
     email: String!
     createdAt: String!
@@ -39,7 +39,7 @@ export const userTypeDefs = gql`
 
   type Query {
     "Get user by ID"
-    getUser(userId: ID!): User
+    getUser(userId: String!): User
     
     "Get all users with optional pagination"
     getUsers(

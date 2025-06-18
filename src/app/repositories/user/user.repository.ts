@@ -1,6 +1,6 @@
 import DatabaseClient from "@/prisma";
 import IUserRepository from "./interface.user.repository";
-import { CreateUserInput, UpdateUserInput, UserResponse } from "@/types/user"
+import { CreateUserInput, UpdateUserInput, UserResponse, UserResponseWithPassword } from "@/types/user"
 import CommonUtils from "@/app/utils/common"
 class UserRepository implements IUserRepository {
 	create(user: CreateUserInput): Promise<UserResponse> {
@@ -70,6 +70,18 @@ class UserRepository implements IUserRepository {
 			}
 		})
 	}
+  getByEmail(email: string): Promise<UserResponseWithPassword> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await DatabaseClient.client.user.findFirst({
+          where: { email },
+        }) as UserResponseWithPassword;
+        resolve(result);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
 }
 
 export default UserRepository;

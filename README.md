@@ -20,18 +20,18 @@
 
 ## ✨ Features
 
-| Category        | Features                                                                 |
-|----------------|--------------------------------------------------------------------------|
-| 🚀 Performance | Server-side rendering, Static site generation, Image optimization       |
-| 🔐 Auth        | JWT Authentication, Role-based access control                         |
-| 🛒 E-commerce  | Product catalog, Shopping cart, Checkout, Order management             |
-| 📱 Responsive  | Mobile-first design, Responsive layouts                                |
-| 🧪 Testing     | Unit tests, Integration tests, E2E tests                              |
-
+| Category       | Features                                                          |
+| -------------- | ----------------------------------------------------------------- |
+| 🚀 Performance | Server-side rendering, Static site generation, Image optimization |
+| 🔐 Auth        | JWT Authentication, Role-based access control                     |
+| 🛒 E-commerce  | Product catalog, Shopping cart, Checkout, Order management        |
+| 📱 Responsive  | Mobile-first design, Responsive layouts                           |
+| 🧪 Testing     | Unit tests, Integration tests, E2E tests                          |
 
 ## 🛠 Tech Stack
 
 ### Frontend
+
 - **Framework**: Next.js 13+ with App Router
 - **Language**: TypeScript
 - **State Management**: React Context + useReducer
@@ -40,6 +40,7 @@
 - **UI Components**: (e.g., Headless UI, Radix UI, or your choice)
 
 ### Backend
+
 - **Runtime**: Node.js
 - **API**: GraphQL with Apollo Server
 - **Database**: MongoDB with Prisma ORM
@@ -47,6 +48,7 @@
 - **Validation**: Zod
 
 ### Development Tools
+
 - **Package Manager**: pnpm
 - **Linting**: ESLint + Prettier
 - **Version Control**: Git + GitHub
@@ -122,16 +124,16 @@ ecommerce-nextjs/
 
 ### Available Scripts
 
-| Script          | Description                                     |
-|----------------|-------------------------------------------------|
-| `pnpm dev`     | Start development server                       |
-| `pnpm build`   | Build for production                          |
-| `pnpm start`   | Start production server                       |
-| `pnpm lint`    | Run ESLint                                     |
-| `pnpm format`  | Format code with Prettier                      |
-| `pnpm test`    | Run tests                                      |
-| `pnpm prisma`  | Run Prisma CLI commands                       |
-| `pnpm db:push` | Push schema changes to database               |
+| Script         | Description                     |
+| -------------- | ------------------------------- |
+| `pnpm dev`     | Start development server        |
+| `pnpm build`   | Build for production            |
+| `pnpm start`   | Start production server         |
+| `pnpm lint`    | Run ESLint                      |
+| `pnpm format`  | Format code with Prettier       |
+| `pnpm test`    | Run tests                       |
+| `pnpm prisma`  | Run Prisma CLI commands         |
+| `pnpm db:push` | Push schema changes to database |
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -247,6 +249,7 @@ getUsers(
 ```
 
 **Example Request:**
+
 ```graphql
 query GetUsers {
   getUsers(
@@ -279,6 +282,7 @@ input CreateUserInput {
 ```
 
 **Example Request:**
+
 ```graphql
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
@@ -290,6 +294,7 @@ mutation CreateUser($input: CreateUserInput!) {
 ```
 
 **Variables:**
+
 ```json
 {
   "input": {
@@ -352,6 +357,7 @@ Contributions are what make the open-source community such an amazing place to l
 ### Reporting Issues
 
 Found a bug or have a feature request? Please [open an issue](https://github.com/yourusername/ecommerce-nextjs/issues) and include:
+
 - A clear title and description
 - Steps to reproduce the issue
 - Expected vs actual behavior
