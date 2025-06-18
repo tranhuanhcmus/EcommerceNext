@@ -2,11 +2,9 @@ import { gql } from 'graphql-tag';
 
 export const userTypeDefs = gql`
   type User {
-    userId: String!
+    userId: ID!
     name: String
     email: String!
-    createdAt: String!
-    updatedAt: String!
   }
 
   input CreateUserInput {
@@ -39,8 +37,8 @@ export const userTypeDefs = gql`
 
   type Query {
     "Get user by ID"
-    getUser(userId: String!): User
-    
+    getUser(userId: ID!): User
+
     "Get all users with optional pagination"
     getUsers(
       skip: Int
@@ -53,10 +51,10 @@ export const userTypeDefs = gql`
   type Mutation {
     "Create a new user"
     createUser(input: CreateUserInput!): User!
-    
+
     "Update an existing user"
     updateUser(userId: ID!, input: UpdateUserInput!): User!
-    
+
     "Delete a user"
     deleteUser(userId: ID!): User
   }

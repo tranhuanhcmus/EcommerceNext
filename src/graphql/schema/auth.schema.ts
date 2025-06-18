@@ -5,10 +5,14 @@ export const authTypeDefs = gql`
   Authentication response containing user data and access token
   """
   type AuthResponse {
-    """The authenticated user"""
+    """
+    The authenticated user
+    """
     user: User!
-    
-    """JWT access token for authenticated requests"""
+
+    """
+    JWT access token for authenticated requests
+    """
     token: String!
   }
 

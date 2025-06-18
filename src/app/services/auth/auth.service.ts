@@ -1,6 +1,10 @@
 import IUserRepository from '@/app/repositories/user/interface.user.repository';
 import IAuthService from './interface.auth.service';
-import { AuthResponse, LoginInput, RegisterInput } from './interface.auth.service';
+import {
+  AuthResponse,
+  LoginInput,
+  RegisterInput,
+} from './interface.auth.service';
 import { UserResponse } from '@/types/user';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -18,8 +22,7 @@ class AuthService implements IAuthService {
   private readonly JWT_EXPIRES_IN = '7d';
   private readonly JWT_SECRET = JWT.SECRET;
 
-  constructor(private userRepository: IUserRepository) {
-  }
+  constructor(private userRepository: IUserRepository) {}
 
   /**
    * Hash a password using bcrypt
@@ -69,7 +72,7 @@ class AuthService implements IAuthService {
       }
 
       const decoded = jwt.verify(token, this.JWT_SECRET) as JwtPayload;
-      
+
       return {
         userId: decoded.userId,
         email: decoded.email,
@@ -100,7 +103,6 @@ class AuthService implements IAuthService {
       }
 
       const token = await this.generateToken(user);
-
       return {
         user: user,
         token,

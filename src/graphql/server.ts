@@ -7,12 +7,12 @@ import { createContext, GraphQLContext } from './context';
 const server = new ApolloServer<GraphQLContext>({
   typeDefs,
   resolvers,
-  formatError: (formattedError) => {
+  formatError: formattedError => {
     console.error('GraphQL Error:', {
       message: formattedError.message,
       path: formattedError.path,
       locations: formattedError.locations,
-      extensions: formattedError.extensions,
+      // extensions: formattedError.extensions,
     });
 
     return {
