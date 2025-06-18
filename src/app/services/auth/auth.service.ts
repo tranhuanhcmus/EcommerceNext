@@ -1,10 +1,6 @@
 import IUserRepository from '@/app/repositories/user/interface.user.repository';
-import {
-  IAuthService,
-  AuthResponse,
-  LoginInput,
-  RegisterInput,
-} from './interface.auth.service';
+import IAuthService from './interface.auth.service';
+import { AuthResponse, LoginInput, RegisterInput } from './interface.auth.service';
 import { UserResponse } from '@/types/user';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';

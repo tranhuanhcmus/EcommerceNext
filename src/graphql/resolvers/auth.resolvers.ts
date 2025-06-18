@@ -1,23 +1,11 @@
-import { IAuthService, LoginInput, RegisterInput } from '@/app/services/auth/interface.auth.service';
+import IAuthService from '@/app/services/auth/interface.auth.service';
+import { LoginInput, RegisterInput } from '@/app/services/auth/interface.auth.service';
 
 interface Context {
   authService: IAuthService;
 }
 
 export const authResolvers = {
-  // Union type resolver for AuthResult
-  AuthResult: {
-    __resolveType(obj: any) {
-      if (obj.user && obj.token) {
-        return 'AuthResponse';
-      }
-      if (obj.message) {
-        return 'Error';
-      }
-      return null;
-    },
-  },
-
   Mutation: {
     login: async (
       _: unknown,

@@ -28,7 +28,7 @@ export interface AuthResponse {
 /**
  * Interface for authentication service
  */
-export interface IAuthService {
+export default interface IAuthService {
   /**
    * Hash a password using bcrypt
    */
